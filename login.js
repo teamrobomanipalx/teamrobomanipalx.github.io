@@ -31,9 +31,9 @@ console.log('in login.js');
           
         ],
         // Terms of service url.
-        tosUrl: 'index.html',
+        tosUrl: 'tos.html',
         // Privacy policy url.
-        privacyPolicyUrl: 'index.html'
+        privacyPolicyUrl: 'priv.html'
       };
 
       // The start method will wait until the DOM is loaded.
