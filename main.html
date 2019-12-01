@@ -17,11 +17,11 @@
 
                 <ul id = "sidebar">
                 <li> <a class="vertical1"href="https://robomanipal.com"><img id = "root" src="images\Frontparallax\navbar.png" style="height:40%;width:40%;"></a> </li>
-                  <li><a class="active" href="#home" onclick="home()">Home</a></li>
-                  <li><a class="vertical"href="#application" onclick="apply()">Alumni Application</a></li>
-                  <li><a class="vertical"href="#register"onclick = "register()">Borrowing Register</a></li>
-                  <li><a class="vertical"href="#finance"onclick = "log()">Finance Logger</a></li>
-                  <li><a class="vertical"href="#about" onclick = "approve()" id = "teamheads" style = "visibility: hidden;">Approve Request</a></li>
+                  <li><a class="active"  onclick="home()">Home</a></li>
+                  <li><a class="vertical"onclick="apply()">Alumni Application</a></li>
+                  <li><a class="vertical"onclick = "register()">Borrowing Register</a></li>
+                  <li><a class="vertical"onclick = "log()">Finance Logger</a></li>
+                  <li><a class="vertical"onclick = "approve()" id = "teamheads" style = "visibility: hidden;">Approve Request</a></li>
                 </ul>
                 
                 <div id = "box" style="margin-left:25%;padding:1px 16px;height:1000px;">
@@ -35,9 +35,11 @@
                         <h2 id='username'></h2>
                         <section id = "teamheads" style="visibility:hidden">
                                 
-                                <section id = "approval" style="visibility:hidden">
+                                <section id = "approval" style="visibility:visible">
+                                        <table id = "approvaltable"></table>
                                 
                                 </section>
+                        </section>
                                 <section id="home" style = "visibility: visible;">
                                         <section id="innerhome">
                                                 <h1>Yolo!</h1>
@@ -70,14 +72,7 @@
                             
                         </section>
 
-                        <section id = "teamheads" style="visibility:hidden">
-                                
-                                <section id = "approval" style="visibility:hidden">
-                                <table id = "approvaltable">
-                                   
-                                </table>
-                                </section>
-                        </section>
+                        
                         
                         
                  
@@ -86,7 +81,8 @@
     <script src='main.js'></script>
               <script src='form.js'></script> 
               <script src='register.js'></script>
-              <script src='log.js'></script> 
+              <script src='log.js'></script>
+              <script src='home.js'></script>  
 </body>
 </html>
  

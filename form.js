@@ -49,8 +49,11 @@ function submit(){
       
 }
 function apply(){
+    for(i=0;i<50;i++){
+        if(document.getElementById("tr"+i)){document.getElementById("tr"+i).remove();}
+    }
     if(document.getElementById("innerhome")){document.getElementById("innerhome").remove();}
-    if(document.getElementById("approvaltable")){document.getElementById("approvaltable").remove();}
+    if(document.getElementById("approvaltable")){document.getElementById("approvaltable").style.visibility="hidden";}
     document.getElementById("statusbox").innerHTML = "";
     var userId = firebase.auth().currentUser;
     var applicationstatus;
@@ -74,21 +77,24 @@ function apply(){
 }
 function approve(){
 
+    console.log(document.getElementById("innerhome"));
     if(document.getElementById("innerhome")){document.getElementById("innerhome").remove();}
-    document.getElementById("statusbox").innerHTML = "";
-    user = firebase.auth().currentUser;
-    document.getElementById("approval").style.visibility = "visible";
     document.getElementById("form").style.visibility = "hidden";
+    document.getElementById("statusbox").innerHTML = "";
+    document.getElementById("approvaltable").style.visibility = "visible";
+    user = firebase.auth().currentUser;
+    
     var smallDOM;
-    var bigDOM = '<table id = "approvaltable"><tr><th>Name</th><th>Active Years</th><th>Action</th><th>Action</th></tr>';
+    var bigDOM = '<tr><th>Name</th><th>Active Years</th><th>Action</th><th>Action</th></tr>';
     var verifiedRef = firebase.database().ref('verify/');
-    verifiedRef.on('value', function(snapshot) {
+    verifiedRef.once('value', function(snapshot) {
         pending = snapshot.val();
         var i;
+        console.log(pending);
         if(!isPending(pending)){
             
             document.getElementById("statusbox").innerHTML = "No pending request"; 
-        }
+        }else{
         for(i=0;i<Object.keys(pending).length;i++){
          
             if(Object.values(pending)[i].verifier==user.displayName && Object.values(pending)[i].alumniverified==0){
@@ -99,13 +105,10 @@ function approve(){
            
 
         }
-        bigDOM=bigDOM+'</table>';
-
-        document.getElementById("approval").innerHTML = bigDOM;
-        if(!isPending(pending)){
-            
-            document.getElementById("statusbox").innerHTML = "No pending request"; 
-        }
+        
+        console.log(document.getElementById("approvaltable"));
+        document.getElementById("approvaltable").innerHTML = bigDOM;}
+       
       
     });
 
