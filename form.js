@@ -4,7 +4,7 @@ var form  = {};
 (function dropdownupdate() {
     console.log('indropdown');
     
-    var teamheadarray=["bossboy"];
+    var teamheadarray=[];
     var x = firebase.database().ref("teamheads").orderByKey();
     console.log(x);
     x.once("value") .then(function(snapshot) {
@@ -86,7 +86,7 @@ function approve(){
     document.getElementById("approval").style.visibility = "visible";
     console.log('in approve');
     var smallDOM;
-    var bigDOM = '<tr><th>Name</th><th>Active Years</th><th>Action</th><th>Action</th></tr>';
+    var bigDOM = '<table id = "approvaltable"><tr><th>Name</th><th>Active Years</th><th>Action</th><th>Action</th></tr>';
     var verifiedRef = firebase.database().ref('verify/');
     console.log(verifiedRef);
     verifiedRef.on('value', function(snapshot) {
@@ -105,11 +105,14 @@ function approve(){
             smallDOM='<tr id = "tr'+i+'" style="visibility:visible"><td>'+Object.values(pending)[i].username+'</td><td>'+Object.values(pending)[i].yearsactive+'</td><td><button onclick="elementapprove('+i+',\''+ Object.keys(pending)[i]+'\')">Approve</button></td><td><button onclick="elementdelete('+i+',\''+ Object.keys(pending)[i]+'\')">Don\'t Approve</button></td></tr>'
             bigDOM = bigDOM+smallDOM;
             console.log(bigDOM);
-            document.getElementById("approvaltable").innerHTML = bigDOM;
+            
             }
            
 
         }
+        bigDOM=bigDOM+'</table>';
+
+        document.getElementById("approval").innerHTML = bigDOM;
         if(!isPending(pending)){
             
             document.getElementById("statusbox").innerHTML = "No pending request"; 
