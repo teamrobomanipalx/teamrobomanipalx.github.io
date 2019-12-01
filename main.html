@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Main Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+<body>
+
+                <ul id = "sidebar">
+                <li> <a class="vertical1"href="https://robomanipal.com"><img id = "root" src="images\Frontparallax\navbar.png" style="height:40%;width:40%;"></a> </li>
+                  <li><a class="active" href="#home" onclick="home()">Home</a></li>
+                  <li><a class="vertical"href="#application" onclick="apply()">Alumni Application</a></li>
+                  <li><a class="vertical"href="#register"onclick = "register()">Borrowing Register</a></li>
+                  <li><a class="vertical"href="#finance"onclick = "log()">Finance Logger</a></li>
+                  <li><a class="vertical"href="#about" onclick = "approve()" id = "teamheads" style = "visibility: hidden;">Approve Request</a></li>
+                </ul>
+                
+                <div id = "box" style="margin-left:25%;padding:1px 16px;height:1000px;">
+                        <ul id ="boxnav">
+                                <li> <img id="profilepic" src="1.jpg" style="height:30%;width:30%;border-radius:50%;"></li>
+                                <li id='username'>></li>
+                                <li style="float:right"><a class="active" href="#about" onclick="mainapp.logOut()">Sign Out</a></li>
+                              </ul>
+                    
+                    <h3 id='statusbox'></h3>    
+                        <h2 id='username'></h2>
+                        <section id = "teamheads" style="visibility:hidden">
+                                
+                                <section id = "approval" style="visibility:hidden">
+                                
+                                </section>
+                                <section id="home" style = "visibility: visible;">
+                                        <section id="innerhome">
+                                                <h1>Yolo!</h1>
+                                        <h2>ALUMNI UPDATE</h2>
+                                        <p>The portal is finally here.<br> <br>Don't make mistakes while entering and logging data. <b>Change you Google/Github Profile picture and then sign-in again</b> before applying.
+                                                One person from every year has an option to verify batchmates.Preferrably Team Heads.Those with special privileges, please approve on ensuring the active duration. <br>Contact me (Kishor Ingale) incase of problems.
+                                                Please don't try to test this system. It is not for robust use.
+                                                Peace.
+                                                <br>
+                                                <br>
+                                                PS:If possible, please do visit the Workshop. We would love to have our Alumni in the workshop sometimes and not just on the website. 
+                
+                                        </p>
+                                        </section>
+                                        
+                                </section>
+                  <section id = "form" style="visibility:hidden">
+                        <form id = "q1">
+                                <input id  = "linkedinurl" name="LinkedInURL" type="text" placeholder="LinkedIn URL">
+                                <br>
+                                <input id  = "yearsactive" name="years active" type="text" placeholder="Years Active (format YYYY-YYYY)">
+                                <br>
+                                <br>
+                                <label>Choose Verifier</label><br>
+                                <select id="mySelect" name = "verifier" paceholder="Choose Verifier">
+                                      </select>
+                    
+                            </form>
+                            <button class="button" onclick="submit()"><span>Apply</span></button>
+                            
+                        </section>
+
+                        <section id = "teamheads" style="visibility:hidden">
+                                
+                                <section id = "approval" style="visibility:hidden">
+                                <table id = "approvaltable">
+                                   
+                                </table>
+                                </section>
+                        </section>
+                        
+                        
+                 
+                </div>
+    <script src='firebase.js'></script>    
+    <script src='main.js'></script>
+              <script src='form.js'></script> 
+              <script src='register.js'></script>
+              <script src='log.js'></script> 
+</body>
+</html>
+ 
