@@ -91,8 +91,8 @@ function approve(){
         pending = snapshot.val();
         var i;
         console.log(pending);
-        if(!isPending(pending)){
-            
+        if(isPending(pending)){
+            console.log("inif");
             document.getElementById("statusbox").innerHTML = "No pending request"; 
         }else{
         for(i=0;i<Object.keys(pending).length;i++){
@@ -100,7 +100,7 @@ function approve(){
             if(Object.values(pending)[i].verifier==user.displayName && Object.values(pending)[i].alumniverified==0){
             smallDOM='<tr id = "tr'+i+'" style="visibility:visible"><td>'+Object.values(pending)[i].username+'</td><td>'+Object.values(pending)[i].yearsactive+'</td><td><button onclick="elementapprove('+i+',\''+ Object.keys(pending)[i]+'\')">Approve</button></td><td><button onclick="elementdelete('+i+',\''+ Object.keys(pending)[i]+'\')">Don\'t Approve</button></td></tr>'
             bigDOM = bigDOM+smallDOM;
-            
+            console.log(bigDOM);
             }
            
 
